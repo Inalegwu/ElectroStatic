@@ -4,6 +4,7 @@ import { GithubLogo } from "@phosphor-icons/react";
 
 export const App = () => {
   const { data: appVer } = trpc.version.useQuery();
+  const { mutate: openGithub } = trpc.openGithub.useMutation();
 
   return (
     <Box
@@ -23,9 +24,15 @@ export const App = () => {
         </Text>
         <Button
           borderRadius={5}
-          padding={3}
+          padding={8}
           background="colors.white"
           color="black"
+          border="none"
+          display="flex"
+          alignContent="center"
+          alignItems={"center"}
+          justifyContent="center"
+          onClick={() => openGithub()}
         >
           <GithubLogo size={15} />
         </Button>

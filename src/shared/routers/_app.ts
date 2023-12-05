@@ -11,7 +11,7 @@ export const appRouter = router({
     return pkg.version;
   }),
   openGithub: publicProcedure.mutation(async () => {
-    shell.openExternal("https://github.com/ElectroStatic");
+    shell.openExternal("https://github.com/Inalegwu/ElectroStatic");
   }),
 });
 
