@@ -1,5 +1,6 @@
-import { Box, Text } from "@kuma-ui/core";
+import { Box, Button, Text } from "@kuma-ui/core";
 import { trpc } from "@src/shared/config";
+import { GithubLogo } from "@phosphor-icons/react";
 
 export const App = () => {
   const { data: appVer } = trpc.version.useQuery();
@@ -20,6 +21,9 @@ export const App = () => {
         <Text as="h3" fontStyle="normal" fontSize={30}>
           Version {appVer}
         </Text>
+        <Button background="colors.red.100" color="colors.white">
+          <GithubLogo size={15} />
+        </Button>
       </Box>
     </Box>
   );

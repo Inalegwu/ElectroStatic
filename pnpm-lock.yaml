@@ -11,6 +11,9 @@ dependencies:
   '@kuma-ui/core':
     specifier: ^1.5.4
     version: 1.5.4(@types/react@18.2.42)(react@18.2.0)
+  '@phosphor-icons/react':
+    specifier: ^2.0.15
+    version: 2.0.15(react-dom@18.2.0)(react@18.2.0)
   '@tanstack/react-query':
     specifier: ^4.0.0
     version: 4.36.1(react-dom@18.2.0)(react@18.2.0)
@@ -1231,6 +1234,17 @@ packages:
     dependencies:
       mkdirp: 1.0.4
       rimraf: 3.0.2
+    dev: false
+
+  /@phosphor-icons/react@2.0.15(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-PQKNcRrfERlC8gJGNz0su0i9xVmeubXSNxucPcbCLDd9u0cwJVTEyYK87muul/svf0UXFdL2Vl6bbeOhT1Mwow==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      react: '>= 16.8'
+      react-dom: '>= 16.8'
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
     dev: false
 
   /@pkgjs/parseargs@0.11.0:
