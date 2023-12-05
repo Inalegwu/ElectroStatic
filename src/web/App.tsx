@@ -21,7 +21,12 @@ export const App = () => {
         <Text as="h3" fontStyle="normal" fontSize={30}>
           Version {appVer}
         </Text>
-        <Button background="colors.red.100" color="colors.white">
+        <Button
+          borderRadius={5}
+          padding={3}
+          background="colors.white"
+          color="black"
+        >
           <GithubLogo size={15} />
         </Button>
       </Box>
