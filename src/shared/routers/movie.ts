@@ -12,7 +12,8 @@ export const movieRouter = router({
     )
     .mutation(async ({ ctx, input }) => {
       await ctx.db.insert(movies).values({
-        id: "",
+        // random id's
+        id: Math.floor(Math.random() * 10000000).toString(),
         director: input.director,
         name: input.name,
       });
