@@ -9,9 +9,6 @@ const isDev = process.env.NODE_ENV === "development";
 
 const common: Configuration = {
   mode: isDev ? "development" : "production",
-  watchOptions: {
-    ignored: ["dist/"],
-  },
   externals: ["fsevents", "better-sqlite3"],
   output: {
     publicPath: "./",
@@ -52,6 +49,7 @@ const common: Configuration = {
   watch: isDev,
   devtool: isDev ? "source-map" : undefined,
   plugins: [
+    new KumaUIWebpackPlugin(),
     new CopyPlugin({
       patterns: [
         {
@@ -86,7 +84,6 @@ const renderer: Configuration = {
     app: "./src/web/index.tsx",
   },
   plugins: [
-    new KumaUIWebpackPlugin(),
     new MiniCssExtractPlugin(),
     new HtmlWebpackPlugin({
       inject: "body",

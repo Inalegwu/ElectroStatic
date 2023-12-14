@@ -1,8 +1,8 @@
 import * as schema from "./schema";
 import { app } from "electron";
+import Database from "better-sqlite3";
 import { drizzle } from "drizzle-orm/better-sqlite3";
 import { migrate } from "drizzle-orm/better-sqlite3/migrator";
-import Database from "better-sqlite3";
 
 // this is necessary , so you don't end up packaing your
 // development database with your application as well as ensuring

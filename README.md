@@ -18,7 +18,7 @@ Kuma UI , is a rather new discovery that seemed to work well within the context 
 
 ## Genetic make up
 
-### What packages make up ElectroStatic ?
+The Key Pieces of ElectroStatic
 
 [TRPC](https://trpc.io): This package is used as our IPC layer.Having using this package in my projects has made interprocess communication much easier , especially with the ease of [Electron TRPC](https://www.electron-trpc.dev/).I had originally used [Interprocess](https://github.com/daltonmenezes/interprocess) by Dalton Menezes , which was great, But the lack of typesaftey became a problem once my project grew significantly but luckily I found electron-trpc after some research and it's been great to me
 
