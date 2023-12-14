@@ -2,11 +2,9 @@ import { createTheme } from "@kuma-ui/core";
 
 const theme = createTheme({
   colors: {
-    red: {
-      100: "#ff6b6b",
-    },
     primary: {
-      100: "rgba(200,290,255,1)",
+      100: "hsl(300,100,100)",
+      200: "hsl(300,100,90)",
     },
     black: "#000000",
     white: "#ffffff",

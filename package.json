@@ -1,13 +1,13 @@
 {
-  "name": "starter",
-  "description": "electron-trpc-start",
+  "name": "electrostatic",
+  "description": "Starter Template for electron apps with trpc , drizzle-orm and sqlite",
   "version": "0.0.1",
   "license": "MIT",
   "author": {
     "name": "Studio"
   },
   "repository": {
-    "url": "https://github.com/Studio/Tische.git"
+    "url": "https://github.com/Inalegwu/ElectroStatic.git"
   },
   "main": "dist/main.js",
   "scripts": {
@@ -23,6 +23,46 @@
     "patterns": [
       "dist/**/*"
     ]
+  },
+  "build": {
+    "appId": "com.electrostatic.app",
+    "productName": "ElectroStatic",
+    "artifactName": "${product_name}-${version}_${platform}_${arch}.${ext}",
+    "buildDependenciesFromSource": true,
+    "icon": "assets/icon.png",
+    "files": [
+      "dist/**/*"
+    ],
+    "directories": {
+      "output": "release/${version}"
+    },
+    "mac": {
+      "target": [
+        "dmg",
+        "zip"
+      ]
+    },
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "deleteAppOnUninstall": true
+    }
   },
   "dependencies": {
     "@electron/rebuild": "^3.4.1",
@@ -49,6 +89,7 @@
     "css-loader": "^6.8.1",
     "drizzle-kit": "^0.20.6",
     "electron": "^28.0.0",
+    "electron-builder": "^24.9.1",
     "electronmon": "^2.0.2",
     "html-webpack-plugin": "^5.5.3",
     "mini-css-extract-plugin": "^2.7.6",

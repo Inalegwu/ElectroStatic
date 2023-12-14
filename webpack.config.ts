@@ -47,6 +47,7 @@ const common: Configuration = {
 
 const main: Configuration = {
   ...common,
+  plugins: [new KumaUIWebpackPlugin()],
   target: "electron-main",
   entry: {
     main: "./src/main.ts",
@@ -68,7 +69,6 @@ const renderer: Configuration = {
     app: "./src/web/index.tsx",
   },
   plugins: [
-    new KumaUIWebpackPlugin(),
     new MiniCssExtractPlugin(),
     new HtmlWebpackPlugin({
       inject: "body",
