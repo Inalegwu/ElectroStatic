@@ -9,7 +9,7 @@ import { migrate } from "drizzle-orm/better-sqlite3/migrator";
 // your application's stored data lives in the same location as other application specific
 // data
 process.env = {
-  DATABASE_URL: `${app.getPath("appData")}/starter/storage.db`,
+  DATABASE_URL: `${app.getPath("appData")}/ElectroStatic/storage.db`,
 };
 
 const sqlite = new Database(process.env.DATABASE_URL!, {

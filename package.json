@@ -17,7 +17,7 @@
     "dev:electron": "wait-on dist/main.js dist/index.html && electronmon .",
     "db:generate": "drizzle-kit generate:sqlite",
     "db:push": "drizzle-kit push:sqlite",
-    "postinstall": "electron-rebuild"
+    "postinstall": "electron-rebuild && pnpm db:generate"
   },
   "electronmon": {
     "patterns": [
