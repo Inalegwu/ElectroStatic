@@ -2,12 +2,9 @@ import { createTheme } from "@kuma-ui/core";
 
 const theme = createTheme({
   colors: {
-    primary: {
-      100: "hsl(300,100,100)",
-      200: "hsl(300,100,90)",
-    },
     black: "#000000",
     white: "#ffffff",
+    error: "#rgba(255,0,0,0.6)",
   },
   spacings: {
     sm: "2px",

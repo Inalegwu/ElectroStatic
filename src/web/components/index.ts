@@ -1,3 +1,4 @@
 import Layout from "./Layout";
+import ErrorBoundaryFallBack from "./ErrorBoundaryFallBack";
 
-export { Layout };
+export { ErrorBoundaryFallBack, Layout };

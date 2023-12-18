@@ -15,7 +15,8 @@
       "@shared/*": ["src/shared/*"],
       "@components/*": ["src/web/components/*"],
       "@assets/*": ["src/assets/*"],
-      "@pages/*": ["src/web/pages/*"]
+      "@pages/*": ["src/web/pages/*"],
+      "@state/*": ["src/web/state/*"]
     }
   },
   "include": ["src", "./kuma.config.ts"],

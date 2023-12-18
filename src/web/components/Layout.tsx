@@ -2,6 +2,7 @@ import React from "react";
 import { Box, Button, HStack, Text } from "@kuma-ui/core";
 import { trpc } from "@src/shared/config";
 import { CornersOut, Minus, X } from "@phosphor-icons/react";
+import { globalState$ } from "@state/index";
 
 type LayoutProps = {
   children?: React.ReactNode;
@@ -13,12 +14,16 @@ export default function Layout(props: LayoutProps) {
   const { mutate: maximizeWindow } = trpc.window.maximize.useMutation();
   const { mutate: closeWindow } = trpc.window.closeWindow.useMutation();
 
+  // use the config options from the global state
+  const uiState = globalState$.get();
+
   return (
     <Box
       width="100%"
       height="100vh"
       background="colors.black"
       color="colors.white"
+      fontSize={uiState.fontSize}
     >
       {/* title bar */}
       <Box

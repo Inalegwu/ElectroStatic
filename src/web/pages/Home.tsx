@@ -4,7 +4,7 @@ import { GithubLogo } from "@phosphor-icons/react";
 import { Box, Button, HStack, Input, Text, VStack } from "@kuma-ui/core";
 
 export default function Home() {
-  const { mutate: openGithub } = trpc.openGithub.useMutation();
+  const { mutate: openGithub } = trpc.gh.useMutation();
   const { data: movies } = trpc.movie.getMovies.useQuery();
 
   return (

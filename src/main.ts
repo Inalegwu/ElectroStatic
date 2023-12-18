@@ -4,6 +4,9 @@ import { createIPCHandler } from "electron-trpc/main";
 import { appRouter } from "@src/shared/routers/_app";
 import { createContext } from "@src/shared/context";
 
+// set the app name independent of package.json name
+app.setName("ElectroStatic");
+
 const createWindow = () => {
   const mainWindow = new BrowserWindow({
     // disable the window frame

@@ -2,7 +2,7 @@
 
 This project is a starter template for Electron Based Desktop applications
 it's designed to be as unopinionated as possible and is based on [Create-Electron-Webpack](https://github.com/sprout2000/create-electron-webpack)
-My Only opinion here is Kuma-UI , and that is entirely removable , like every other part of this project
+All packages included in this project are entirely removable and can be replaced with your own choices , This template is designed to reduce boilerplate and to let developers focusing on building their applications as quickly as possible
 
 # Why ElectroStatic ?
 
@@ -26,7 +26,9 @@ The Key Pieces of ElectroStatic
 
 [React](https://react.dev) : The Default frontend framework shipped with the Starter. A Branch specific to Solid JS Will be created in the near future , as these are the two frameworks I develop in primarily, pull requests for other frameworks are welcome as well
 
-[Drizzle](https://orm.drizzle.team) : Typescript interface for our storing data in a local database , Ideal for offline first applications and other applications that will need to store some other type of information locally that is too structured for web local storage
+[Drizzle](https://orm.drizzle.team) : Typescript interface for our storing data in a local database , Ideal for offline first applications and other applications that will need to store some other type of information locally that is too structured or too large for web local storage.Offline first apps have become more and more popular in Userland , and building apps with offline first in mind , is a key strategy to success for indie app developers , So drizzle and SQLite are great fits for projects targetting those environments
+
+[Legend State](https://legendapp.com/open-source/state) : New state management library for React and javascript , focused on providing the fine grained reactivity promised by other frameworks without hacking React internals , I've used this in personal and professional projects recently after it's announcment and for a new package it shows a lot of promise , This along with [Zustand](https://docs.pmnd.rs/zustand/getting-started/introduction) are my state managers of choice , I've added Legend state to this starter template because of its' relative easy of use and familiarity to people from other state managers like MobX , XState , Valtio and others like it but also to inspire me to use it a bit more in my own personal projects.
 
 [Electron Builder](https://electron.build.) : Tool for packaging electron apps for distribution , there isn't much to say about this package , it's pretty ubiquitous in the electron community
 

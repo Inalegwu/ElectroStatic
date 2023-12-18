@@ -27,6 +27,7 @@ const common: Configuration = {
       "@components": path.resolve(__dirname, "src/web/components/"),
       "@assets": path.resolve(__dirname, "src/assets/"),
       "@pages": path.resolve(__dirname, "src/web/pages"),
+      "@state": path.resolve(__dirname, "src/web/state/"),
     },
   },
   module: {
@@ -85,6 +86,7 @@ const renderer: Configuration = {
   },
   plugins: [
     new MiniCssExtractPlugin(),
+    new KumaUIWebpackPlugin(),
     new HtmlWebpackPlugin({
       inject: "body",
       template: "./src/web/index.html",
