@@ -1,8 +1,8 @@
-import path from "path";
+import { createContext } from "@src/shared/context";
+import { appRouter } from "@src/shared/routers/_app";
 import { BrowserWindow, app } from "electron";
 import { createIPCHandler } from "electron-trpc/main";
-import { appRouter } from "@src/shared/routers/_app";
-import { createContext } from "@src/shared/context";
+import path from "path";
 
 // set the app name independent of package.json name
 app.setName("ElectroStatic");
@@ -30,7 +30,7 @@ const createWindow = () => {
   });
 
   mainWindow.loadFile("dist/index.html");
-  // mainWindow.webContents.openDevTools({ mode: "detach" });
+  // mainWindow.webContents.openDevTools({ mode: "right" });
 };
 
 app.whenReady().then(() => {

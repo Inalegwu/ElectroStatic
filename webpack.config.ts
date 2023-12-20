@@ -1,9 +1,9 @@
-import { Configuration } from "webpack";
+import KumaUIWebpackPlugin from "@kuma-ui/webpack-plugin";
+import CopyPlugin from "copy-webpack-plugin";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import path from "path";
-import KumaUIWebpackPlugin from "@kuma-ui/webpack-plugin";
-import CopyPlugin from "copy-webpack-plugin";
+import { Configuration } from "webpack";
 
 const isDev = process.env.NODE_ENV === "development";
 
@@ -15,9 +15,6 @@ const common: Configuration = {
     filename: "[name].js",
     assetModuleFilename: "assets/[name][ext]",
   },
-  optimization: {
-    realContentHash: true,
-  },
   resolve: {
     extensions: [".js", ".ts", ".jsx", ".tsx", ".json"],
     alias: {
@@ -26,8 +23,7 @@ const common: Configuration = {
       "@shared": path.resolve(__dirname, "src/shared/"),
       "@components": path.resolve(__dirname, "src/web/components/"),
       "@assets": path.resolve(__dirname, "src/assets/"),
-      "@pages": path.resolve(__dirname, "src/web/pages"),
-      "@state": path.resolve(__dirname, "src/web/state/"),
+      "@pages":path.resolve(__dirname,"src/web/pages"),
     },
   },
   module: {
@@ -49,17 +45,16 @@ const common: Configuration = {
   },
   watch: isDev,
   devtool: isDev ? "source-map" : undefined,
-  plugins: [
-    new KumaUIWebpackPlugin(),
+  plugins:[
     new CopyPlugin({
-      patterns: [
+      patterns:[
         {
-          from: "node_modules/better-sqlite3/",
-          to: "node-modules/better-sqlite3/",
-        },
-      ],
-    }),
-  ],
+          from:"node_modules/better-sqlite3/",
+          to:"node_modules/better-sqlite3/"
+        }
+      ]
+    })
+  ]
 };
 
 const main: Configuration = {
@@ -85,8 +80,8 @@ const renderer: Configuration = {
     app: "./src/web/index.tsx",
   },
   plugins: [
-    new MiniCssExtractPlugin(),
     new KumaUIWebpackPlugin(),
+    new MiniCssExtractPlugin(),
     new HtmlWebpackPlugin({
       inject: "body",
       template: "./src/web/index.html",

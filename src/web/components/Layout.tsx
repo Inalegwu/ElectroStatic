@@ -1,21 +1,17 @@
-import React from "react";
-import { Box, Button, HStack, Text } from "@kuma-ui/core";
-import { trpc } from "@src/shared/config";
+import { Box, Button, HStack, Text, VStack } from "@kuma-ui/core";
 import { CornersOut, Minus, X } from "@phosphor-icons/react";
-import { globalState$ } from "@state/index";
+import { trpc } from "@src/shared/config";
+import React from "react";
 
 type LayoutProps = {
   children?: React.ReactNode;
 };
 
-export default function Layout(props: LayoutProps) {
+export default function Layout({ children }: LayoutProps) {
   const { data: appVer } = trpc.version.useQuery();
   const { mutate: minimizeWindow } = trpc.window.minimize.useMutation();
   const { mutate: maximizeWindow } = trpc.window.maximize.useMutation();
   const { mutate: closeWindow } = trpc.window.closeWindow.useMutation();
-
-  // use the config options from the global state
-  const uiState = globalState$.get();
 
   return (
     <Box
@@ -23,78 +19,47 @@ export default function Layout(props: LayoutProps) {
       height="100vh"
       background="colors.black"
       color="colors.white"
-      fontSize={uiState.fontSize}
     >
-      {/* title bar */}
-      <Box
-        height="5%"
+      <HStack
         width="100%"
         display="flex"
         alignContent="center"
         alignItems="center"
         justifyContent="space-between"
-        padding="spacings.sm"
+        padding="spacings.md"
       >
-        <HStack
-          alignContent="flex-end"
-          alignItems="flex-end"
-          justifyContent="flex-start"
-        >
-          <Text as="h4">ElectroStatic</Text>
-          <Text fontSize={11} as="p" color="gray">
+        <VStack>
+          <Text as="p" fontSize={12}>
+            ElectroStatic
+          </Text>
+          <Text as="p" fontSize={10} color="gray">
             {appVer}
           </Text>
-        </HStack>
+        </VStack>
+        <Box display="flex" flex={1} padding={10} id="drag-region"/>
         <HStack
           alignContent="center"
           alignItems="center"
           justifyContent="flex-end"
-          gap="spacings.sm"
         >
           <Button
-            alignContent="center"
-            alignItems="center"
-            justifyContent="center"
-            padding="spacings.md"
-            display="flex"
-            color="colors.white"
-            border="none"
-            background="none"
             onClick={() => minimizeWindow()}
           >
-            <Minus size={13} />
+            <Minus />
           </Button>
           <Button
-            alignContent="center"
-            alignItems="center"
-            justifyContent="center"
-            padding="spacings.md"
-            display="flex"
-            color="colors.white"
-            border="none"
-            background="none"
             onClick={() => maximizeWindow()}
           >
             <CornersOut />
           </Button>
           <Button
-            alignContent="center"
-            alignItems="center"
-            justifyContent="center"
-            padding="spacings.md"
-            display="flex"
-            color="colors.white"
-            border="none"
-            background="none"
             onClick={() => closeWindow()}
           >
             <X />
           </Button>
         </HStack>
-      </Box>
-      <Box width="100%" height="95%">
-        {props.children}
-      </Box>
+      </HStack>
+      {children}
     </Box>
   );
 }

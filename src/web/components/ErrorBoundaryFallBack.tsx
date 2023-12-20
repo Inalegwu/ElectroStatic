@@ -1,10 +1,7 @@
 import { Box, Button, Text } from "@kuma-ui/core";
 import { FallbackProps } from "react-error-boundary";
-import { globalState$ } from "@state/index";
 
 function ErrorBoundaryFallBack(props: FallbackProps) {
-  const uiState = globalState$.get();
-
   return (
     <Box
       width="100%"
@@ -15,11 +12,8 @@ function ErrorBoundaryFallBack(props: FallbackProps) {
       alignContent="center"
       alignItems="center"
       justifyContent="center"
-      background={
-        uiState.colorMode === "light" ? "colors.white" : "colors.black"
-      }
-      color={uiState.colorMode === "light" ? "colors.black" : "colors.white"}
-      fontSize={uiState.fontSize}
+      background="colors.black"
+      color="colors.white"
     >
       <Box
         width="100%"
@@ -56,7 +50,6 @@ function ErrorBoundaryFallBack(props: FallbackProps) {
       </Box>
       <Button
         width="50%"
-        background="colors.primary.100"
         padding="spacings.xl"
         borderRadius="radii.md"
         onClick={() => props.resetErrorBoundary()}
