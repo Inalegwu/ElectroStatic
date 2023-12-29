@@ -12,12 +12,10 @@ process.env = {
   DATABASE_URL: `${app.getPath("appData")}/ElectroStatic/storage.db`,
 };
 
-const sqlite = new Database(process.env.DATABASE_URL!, {
-  /// this line has to exist because for some reason webpack can't find the .node
-  /// file.
-  nativeBinding:
-    "node_modules/better-sqlite3/build/Release/better_sqlite3.node",
-});
+// there is no longer any need to keep the native binding
+// line because using webpack external for better-sqlite3
+// the binding file can be found naturally
+const sqlite = new Database(process.env.DATABASE_URL!);
 const db = drizzle(sqlite, { schema });
 
 await migrate(db, { migrationsFolder: ".drizzle" });
