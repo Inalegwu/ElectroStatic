@@ -1,19 +1,24 @@
 {
-	"$schema": "https://biomejs.dev/schemas/1.4.1/schema.json",
-	"organizeImports": {
-		"enabled": true
-	},
-	"linter": {
-		"enabled": true,
-		"rules": {
-			"recommended": true
-		}
-	},
-	"formatter":{
-		"enabled": true,
-		"formatWithErrors": true,
-		"lineEnding": "crlf",
-		"indentStyle": "space",
-		"indentWidth": 4
-	}
+  "$schema": "https://biomejs.dev/schemas/1.4.1/schema.json",
+  "organizeImports": {
+    "enabled": true
+  },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "recommended": true,
+      "style": {
+        "noUselessElse": "warn",
+        "noNonNullAssertion": "warn"
+      }
+    },
+    "ignore": ["./kuma.config.ts"]
+  },
+  "formatter": {
+    "enabled": true,
+    "formatWithErrors": true,
+    "lineEnding": "crlf",
+    "indentStyle": "space",
+    "indentWidth": 2
+  }
 }

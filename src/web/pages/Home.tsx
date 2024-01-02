@@ -14,6 +14,7 @@ export default function Home() {
         alignContent="center"
         alignItems="center"
         justifyContent="center"
+        background="colors.black"
       >
         <Text as="h4">ElectroStatic Starter</Text>
         <Button onClick={() => openGithub()}>

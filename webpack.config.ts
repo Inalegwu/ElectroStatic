@@ -10,11 +10,11 @@ const isDev = process.env.NODE_ENV === "development";
 const common: Configuration = {
   mode: isDev ? "development" : "production",
   externals: {
-    fsevents:"fsevents",
+    fsevents: "fsevents",
     // keep better-sqlite3 as an external module
     // this allows for storage to be able to resolve
     // it
-    "better-sqlite3":"commonjs better-sqlite3"
+    "better-sqlite3": "commonjs better-sqlite3",
   },
   output: {
     publicPath: "./",
@@ -29,7 +29,7 @@ const common: Configuration = {
       "@shared": path.resolve(__dirname, "src/shared/"),
       "@components": path.resolve(__dirname, "src/web/components/"),
       "@assets": path.resolve(__dirname, "src/assets/"),
-      "@pages":path.resolve(__dirname,"src/web/pages"),
+      "@pages": path.resolve(__dirname, "src/web/pages"),
     },
   },
   module: {
@@ -51,20 +51,17 @@ const common: Configuration = {
   },
   watch: isDev,
   devtool: isDev ? "source-map" : undefined,
-  plugins:[
+  plugins: [
     new CopyPlugin({
-      patterns:[
+      patterns: [
         {
-          from:"node_modules/better-sqlite3/",
-          to:"node_modules/better-sqlite3/"
+          from: "node_modules/better-sqlite3/",
+          to: "node_modules/better-sqlite3/",
         },
-        {
-          from:"./.drizzle/",
-          to:"./drizzle/"
-        }
-      ]
-    })
-  ]
+      ],
+    }),
+    new KumaUIWebpackPlugin(),
+  ],
 };
 
 const main: Configuration = {
@@ -90,7 +87,6 @@ const renderer: Configuration = {
     app: "./src/web/index.tsx",
   },
   plugins: [
-    new KumaUIWebpackPlugin(),
     new MiniCssExtractPlugin(),
     new HtmlWebpackPlugin({
       inject: "body",

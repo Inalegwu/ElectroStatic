@@ -26,12 +26,6 @@ function ErrorBoundaryFallBack(props: FallbackProps) {
         <Text as="h4" fontSize={11}>
           Something went wrong
         </Text>
-        <Box
-          display="flex"
-          alignContent="center"
-          alignItems="center"
-          justifyContent="flex-end"
-        ></Box>
       </Box>
       <Box
         display="flex"
@@ -46,7 +40,6 @@ function ErrorBoundaryFallBack(props: FallbackProps) {
         <Text as="p" fontSize={13}>
           {props.error.message}
         </Text>
-        B
       </Box>
       <Button
         width="50%"
