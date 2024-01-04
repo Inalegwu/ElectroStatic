@@ -60,7 +60,6 @@ const common: Configuration = {
         },
       ],
     }),
-    new KumaUIWebpackPlugin(),
   ],
 };
 
@@ -87,6 +86,7 @@ const renderer: Configuration = {
     app: "./src/web/index.tsx",
   },
   plugins: [
+        new KumaUIWebpackPlugin(),
     new MiniCssExtractPlugin(),
     new HtmlWebpackPlugin({
       inject: "body",
