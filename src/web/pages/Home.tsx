@@ -14,6 +14,7 @@ export default function Home() {
         className="h-screen w-full"
         align="center"
         justify="center"
+        gap="4"
       >
         <Heading>ElectroStatic Starter &copy; 2024</Heading>
         <Button variant="soft" onClick={() => openGithub()}>

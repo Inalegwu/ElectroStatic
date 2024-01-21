@@ -36,7 +36,7 @@ createRoot(document.getElementById("root") as Element).render(
         <Theme
           appearance="dark"
           radius="medium"
-          accentColor="amber"
+          accentColor="mint"
           grayColor="slate"
         >
           <App />
