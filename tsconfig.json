@@ -10,16 +10,14 @@
     "strict": true,
     "baseUrl": ".",
     "paths": {
-      "@/": ["./*"],
       "@src/*": ["src/*"],
       "@shared/*": ["src/shared/*"],
       "@components/*": ["src/web/components/*"],
       "@assets/*": ["src/assets/*"],
-      "@pages/*": ["src/web/pages/*"],
-      "@state/*": ["src/web/state/*"]
+      "@pages/*": ["src/web/pages/*"]
     }
   },
-  "include": ["src", "./kuma.config.ts"],
+  "include": ["src", "src/web/kuma.config.ts"],
   "ts-node": {
     "compilerOptions": {
       "module": "CommonJS"

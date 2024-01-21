@@ -1,55 +1,27 @@
-import { Box, Button, Text } from "@kuma-ui/core";
+import { Button, Flex, Text } from "@radix-ui/themes";
 import { FallbackProps } from "react-error-boundary";
 
 function ErrorBoundaryFallBack(props: FallbackProps) {
   return (
-    <Box
+    <Flex
       width="100%"
-      height="100"
-      flex={1}
+      grow="1"
+      direction="column"
       display="flex"
-      flexDir="column"
-      alignContent="center"
-      alignItems="center"
-      justifyContent="center"
-      background="colors.black"
-      color="colors.white"
+      align="center"
+      justify="center"
     >
-      <Box
-        width="100%"
-        padding="spacings.md"
-        display="flex"
-        alignContent="center"
-        alignItems="center"
-        justifyContent="space-between"
-      >
-        <Text as="h4" fontSize={11}>
-          Something went wrong
-        </Text>
-      </Box>
-      <Box
-        display="flex"
-        flexDir="column"
-        alignContent="flex-start"
-        alignItems="flex-start"
-        gap="spacings.md"
-      >
-        <Text as="h3" color="colors.error">
-          Oops, Something Broke
-        </Text>
-        <Text as="p" fontSize={13}>
-          {props.error.message}
-        </Text>
-      </Box>
-      <Button
-        width="50%"
-        padding="spacings.xl"
-        borderRadius="radii.md"
-        onClick={() => props.resetErrorBoundary()}
-      >
+      <Flex width="100%" align="center" justify="between">
+        <Text>Something went wrong</Text>
+      </Flex>
+      <Flex direction="column" align="start" gap="4">
+        <Text color="red">Oops, Something Broke</Text>
+        <Text>{props.error.message}</Text>
+      </Flex>
+      <Button radius="medium" onClick={() => props.resetErrorBoundary()}>
         <Text>Reload The App</Text>
       </Button>
-    </Box>
+    </Flex>
   );
 }
 

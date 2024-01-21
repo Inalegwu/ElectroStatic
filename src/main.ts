@@ -2,7 +2,7 @@ import { createContext } from "@src/shared/context";
 import { appRouter } from "@src/shared/routers/_app";
 import { BrowserWindow, app } from "electron";
 import { createIPCHandler } from "electron-trpc/main";
-import path from "path";
+import { join } from "path";
 
 // set the app name independent of package.json name
 app.setName("ElectroStatic");
@@ -13,9 +13,10 @@ const createWindow = () => {
     // remove this if you don't plan
     // on having a custom frame
     frame: false,
+    // show: false,
     webPreferences: {
       sandbox: false,
-      preload: path.resolve(__dirname, "preload.js"),
+      preload: join(__dirname, "../preload/preload.js"),
     },
   });
 
@@ -29,7 +30,16 @@ const createWindow = () => {
     createContext,
   });
 
-  mainWindow.loadFile("dist/index.html");
+  mainWindow.webContents.on("dom-ready", () => {
+    mainWindow.show;
+  });
+
+  if (import.meta.env.DEV) {
+    mainWindow.loadURL("http://localhost:5173");
+  } else {
+    mainWindow.loadFile(join(__dirname, "../renderer/index.html"));
+  }
+
   // mainWindow.webContents.openDevTools({ mode: "detach" });
 };
 

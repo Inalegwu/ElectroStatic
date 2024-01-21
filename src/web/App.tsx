@@ -1,7 +1,7 @@
-import { HashRouter, Routes, Route } from "react-router-dom";
-import { Home } from "@pages/index";
 import { ErrorBoundaryFallBack } from "@components/index";
+import { Home } from "@pages/index";
 import { ErrorBoundary } from "react-error-boundary";
+import { HashRouter, Route, Routes } from "react-router-dom";
 
 export const App = () => {
   return (

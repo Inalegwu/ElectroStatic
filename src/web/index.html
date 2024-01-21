@@ -7,9 +7,11 @@
       content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'"
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Electron App</title>
+    <title>Electrostatic</title>
   </head>
-  <body>
+  <!-- force the app into dark theme , some issue with radix themes -->
+  <body class="dark">
     <div id="root"></div>
+    <script type="module" src="main.tsx"></script>
   </body>
 </html>

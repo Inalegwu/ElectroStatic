@@ -1,5 +1,5 @@
-import { Box, Button, HStack, Text, VStack } from "@kuma-ui/core";
 import { CornersOut, Minus, X } from "@phosphor-icons/react";
+import { Button, Flex, Text } from "@radix-ui/themes";
 import { trpc } from "@src/shared/config";
 import React from "react";
 
@@ -14,52 +14,26 @@ export default function Layout({ children }: LayoutProps) {
   const { mutate: closeWindow } = trpc.window.closeWindow.useMutation();
 
   return (
-    <Box
-      width="100%"
-      height="100vh"
-      background="colors.black"
-      color="colors.white"
-    >
-      <HStack
-        width="100%"
-        display="flex"
-        alignContent="center"
-        alignItems="center"
-        justifyContent="space-between"
-        padding="spacings.md"
-      >
-        <VStack>
-          <Text as="p" fontSize={12}>
-            ElectroStatic
-          </Text>
-          <Text as="p" fontSize={10} color="gray">
-            {appVer}
-          </Text>
-        </VStack>
-        <Box display="flex" flex={1} padding={10} id="drag-region"/>
-        <HStack
-          alignContent="center"
-          alignItems="center"
-          justifyContent="flex-end"
-        >
-          <Button
-            onClick={() => minimizeWindow()}
-          >
+    <Flex width="100%" direction="column" grow="1">
+      <Flex grow="1" px="3" py="2">
+        <Flex direction="column">
+          <Text size="1">ElectroStatic</Text>
+          <Text size="1">{appVer}</Text>
+        </Flex>
+        <Flex grow="1" id="drag-region" />
+        <Flex align="center" gap="4" justify="end" className="px-2">
+          <Button variant="ghost" onClick={() => minimizeWindow()}>
             <Minus />
           </Button>
-          <Button
-            onClick={() => maximizeWindow()}
-          >
+          <Button onClick={() => maximizeWindow()} variant="ghost">
             <CornersOut />
           </Button>
-          <Button
-            onClick={() => closeWindow()}
-          >
+          <Button onClick={() => closeWindow()} variant="ghost">
             <X />
           </Button>
-        </HStack>
-      </HStack>
+        </Flex>
+      </Flex>
       {children}
-    </Box>
+    </Flex>
   );
 }
