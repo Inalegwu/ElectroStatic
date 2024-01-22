@@ -1,13 +1,13 @@
 @font-face {
-  font-family: Montserrat;
-  src: url("../assets/fonts/mon.ttf");
+  font-family: Nunito;
+  src: url("../assets/fonts/nun.ttf");
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Montserrat;
+  font-family: Nunito;
   text-decoration: none;
 }
 

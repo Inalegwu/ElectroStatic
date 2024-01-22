@@ -22,7 +22,7 @@ export default function Home() {
           className="w-full h-4/6 rounded-lg"
         />
         <Box className="w-full flex flex-col items-start space-y-1">
-          <Heading className="text-xxl">
+          <Heading size="4">
             Welcome to the ElectroStatic starter template
           </Heading>
           <Text className="text-sm">
@@ -30,55 +30,55 @@ export default function Home() {
           </Text>
           <Text className="text-sm">
             Open
-            <Code className="ml-2 mr-2 px-2 py-1" color="gray">
+            <Code className="ml-2 mr-2 px-2 py-1 mb-1" color="gray">
               src/web/pages/Home.tsx
             </Code>
             and make your first changes
           </Text>
           <ul className="list-circle text-sm p-4 space-y-3">
             <li>
-              <Code className="mr-2 px-3 py-1" color="gray">
+              <Code className="mr-2 px-3 py-1 mb-1" color="gray">
                 src/web/pages
               </Code>
               is where pages of your app lives
             </li>
             <li>
-              <Code className="mr-2 px-3 py-1" color="gray">
+              <Code className="mr-2 px-3 py-1 mb-1" color="gray">
                 src/shared/routers
               </Code>
               is where all your api's live
             </li>
             <li>
-              <Code className="mr-2 px-3 py-1" color="gray">
+              <Code className="mr-2 px-3 py-1 mb-1" color="gray">
                 src/shared/schema
               </Code>
               is where your database schemas live
             </li>
             <li>
-              <Code className="mr-2 px-3 py-1" color="gray">
+              <Code className="mr-2 px-3 py-1 mb-1" color="gray">
                 src/shared/config.ts
               </Code>
               this file defines your query client and trpc config , don't change
               if you dont have to
             </li>
             <li>
-              <Code className="mr-2 px-3 py-1" color="gray">
+              <Code className="mr-2 px-3 py-1 mb-1" color="gray">
                 src/shared/context.ts
               </Code>
               your trpc context is defined here , changes here are on the{" "}
-              <Code className="ml-2 mr-2" color="gray">
+              <Code className="ml-2 mr-2 mb-1" color="gray">
                 ctx
               </Code>
               object of your procedures
             </li>
             <li>
-              <Code className="mr-2 px-3 py-1" color="gray">
+              <Code className="mr-2 px-3 py-1 mb-1" color="gray">
                 src/shared/storage.ts
               </Code>
               your database connection is here
             </li>
             <li>
-              <Code className="mr-2 px-3 py-1" color="gray">
+              <Code className="mr-2 px-3 py-1 mb-1" color="gray">
                 src/shared/types.ts
               </Code>
               all your custom types could live here
