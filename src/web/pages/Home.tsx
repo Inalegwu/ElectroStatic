@@ -12,7 +12,7 @@ export default function Home() {
       <Flex
         grow="1"
         direction="column"
-        className="h-screen w-full overflow-y-scroll pb-20"
+        className="h-screen w-full overflow-y-scroll pb-14"
         gap="4"
         p="2"
       >
