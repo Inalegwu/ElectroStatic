@@ -1,7 +1,7 @@
 import place from "@assets/images/place.jpg";
 import { Layout } from "@components/index";
 import { GithubLogo } from "@phosphor-icons/react";
-import { Box, Button, Code, Flex, Heading, Text } from "@radix-ui/themes";
+import { Box, Button, Code, Flex, Text } from "@radix-ui/themes";
 import { trpc } from "@src/shared/config";
 
 export default function Home() {
@@ -22,9 +22,9 @@ export default function Home() {
           className="w-full h-4/6 rounded-lg"
         />
         <Box className="w-full flex flex-col items-start space-y-1">
-          <Heading size="4">
+          <Text size="8" className="font-medium">
             Welcome to the ElectroStatic starter template
-          </Heading>
+          </Text>
           <Text className="text-sm">
             Get up an running with an Electron app in minutes instead of hours
           </Text>
