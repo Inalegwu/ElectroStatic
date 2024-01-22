@@ -7,9 +7,6 @@ process.env = {
   STORAGE_LOCATION: `${app.getPath("appData")}/Vision/comics.db`,
 };
 
-const sqlite = new Database(process.env.STORAGE_LOCATION!, {
-  nativeBinding:
-    "node_modules/better-sqlite3/build/Release/better_sqlite3.node",
-});
+const sqlite = new Database(process.env.STORAGE_LOCATION!);
 
 export const db = drizzle(sqlite, { schema });

@@ -13,7 +13,8 @@ const createWindow = () => {
     // remove this if you don't plan
     // on having a custom frame
     frame: false,
-    // show: false,
+    minHeight: 700,
+    minWidth: 730,
     webPreferences: {
       sandbox: false,
       preload: join(__dirname, "../preload/preload.js"),

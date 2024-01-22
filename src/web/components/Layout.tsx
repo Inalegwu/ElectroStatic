@@ -9,26 +9,27 @@ type LayoutProps = {
 
 export default function Layout({ children }: LayoutProps) {
   const { data: appVer } = trpc.version.useQuery();
+  // window controls
   const { mutate: minimizeWindow } = trpc.window.minimize.useMutation();
   const { mutate: maximizeWindow } = trpc.window.maximize.useMutation();
   const { mutate: closeWindow } = trpc.window.closeWindow.useMutation();
 
   return (
-    <Flex width="100%" direction="column" grow="1">
-      <Flex grow="1" px="3" py="2">
+    <Flex width="100%" direction="column" grow="1" className="transition">
+      <Flex grow="1" px="2" py="2">
         <Flex direction="column">
-          <Text size="1">ElectroStatic</Text>
-          <Text size="1">{appVer}</Text>
+          <Text className="text-xs ">ElectroStatic</Text>
+          <Text className="text-xs ">{appVer}</Text>
         </Flex>
         <Flex grow="1" id="drag-region" />
         <Flex align="center" gap="4" justify="end" className="px-2">
-          <Button variant="ghost" onClick={() => minimizeWindow()}>
+          <Button variant="ghost" onClick={() => minimizeWindow()} color="gray">
             <Minus />
           </Button>
-          <Button onClick={() => maximizeWindow()} variant="ghost">
+          <Button onClick={() => maximizeWindow()} variant="ghost" color="gray">
             <CornersOut />
           </Button>
-          <Button onClick={() => closeWindow()} variant="ghost">
+          <Button onClick={() => closeWindow()} variant="ghost" color="red">
             <X />
           </Button>
         </Flex>

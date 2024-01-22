@@ -1,13 +1,14 @@
 import { observable } from "@legendapp/state";
 import { persistObservable } from "@legendapp/state/persist";
+import { ObservablePersistLocalStorage } from "@legendapp/state/persist-plugins/local-storage";
 import { GlobalState } from "@shared/types";
 
 // default global state example for working with
 // legend state
 // Legend state supports working with a single large
-// state object or 
+// state object or
 // tiny atomic state objects
-const globalState$ = observable<GlobalState>({
+export const globalState$ = observable<GlobalState>({
   colorMode: "dark",
 });
 
@@ -19,6 +20,7 @@ export function useGlobalState() {
 // based on the configureObservablePersistence configuration
 // observable level persist can be configured using
 // pluginLocal and pluginRemote options
-persistObservable(globalState$,{
-  local:"global_state"
-})
+persistObservable(globalState$, {
+  local: "global_state",
+  pluginLocal: ObservablePersistLocalStorage,
+});
