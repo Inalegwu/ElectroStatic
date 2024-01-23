@@ -20,15 +20,20 @@ The Key Pieces of ElectroStatic
 
 [Radix Themes](https://www.radix-ui.com/themes): For UI Components for appearance.Being a React Native Developer primarily , and having used [Shopify Restyle](https://github.com/Shopify/restyle) many times, I love this pattern of styling , some times over tailwind for building more defined style systems.
 
-[Unocss](https://unocss.dev):For simple additional styling where necessary or where radix-themes don't meet up to what you need , this gives more fine grained control
-
-[React](https://react.dev) : The Default frontend framework shipped with the Starter.My personal framework of choice
+[Unocss](https://unocss.dev):For simple additional styling where necessary or where radix-themes don't meet up to what you need.
 
 [Drizzle](https://orm.drizzle.team) : Typescript interface for our storing data in a local database , Ideal for offline first applications and other applications that will need to store some other type of information locally that is too structured or too large for web local storage.Offline first apps have become more and more popular in Userland , and building apps with offline first in mind , is a key strategy to success for indie app developers , So drizzle and SQLite are great fits for projects targetting those environments
 
 [Legend State](https://legendapp.com/open-source/state) : New state management library for React and javascript , focused on providing the fine grained reactivity promised by other frameworks without hacking React internals , I've used this in personal and professional projects recently after it's announcment and for a new package it shows a lot of promise , This along with [Zustand](https://docs.pmnd.rs/zustand/getting-started/introduction) are my state managers of choice , I've added Legend state to this starter template because of its' relative easy of use and familiarity to people from other state managers like MobX , XState , Valtio and others like it but also to inspire me to use it a bit more in my own personal projects.
 
-[ElectronVite](https://electron-vite.com) : A new way to build electron applications , previously , I've worked with webpack based starter packs , and they work great , until they don't and they become more pain than they're worth , especially when trying to work with wasm binaries and even pnpm , so I set out looking and found electron-vite , a great package and a great starter kit , but their starter seemed a bit too much for me , mostly because on scaffolding a new project , you're greeted with many folders and even a **.d.ts** file , which seemed a bit overkill for some of the things I was trying to do , so I stuck to using just the package and building my own starter around it , and here it is.
-This project did start as a Webpack based project but I have a feeling electron-vite I the only way you and I should go
+### Other Tools
+Other packages that are 'essential' to electron development but
+can be a hassle to setup over and over again
+
+[React](https://react.dev) : The Default frontend framework shipped with the Starter.My personal framework of choice , I use SolidJS as well , but the UI Framework ecosystem around it leave much to be desired so I decided to leave it out for now
+
+[ElectronVite](https://electron-vite.com) : A new way to build electron applications , previously , I've worked with webpack based starter packs , and they work great , until they don't and they become more pain than they're worth , especially when trying to work with wasm binaries and even pnpm , so I set out looking and found electron-vite , a great package and a great starter kit , but their starter seemed a bit too much for me , mostly because on scaffolding a new project , you're greeted with many folders and even a **.d.ts** file , which seemed a bit overkill for some of the things I was trying to do , so I stuck to using just the package and building my own starter around it , and here it is.This project did start as a Webpack based project but I have a feeling electron-vite I the only way you and I should go
 
 [Electron Builder](https://electron.build.) : Tool for packaging electron apps for distribution , there isn't much to say about this package , it's pretty ubiquitous in the electron community
+
+[Better-Sqlite3](https://github.com/wiselibs/better-sqlite3): The best way to interact with an sqlite database in nodejs and thus electron
