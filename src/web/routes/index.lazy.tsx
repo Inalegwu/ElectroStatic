@@ -3,8 +3,13 @@ import { Layout } from "@components/index";
 import { GithubLogo } from "@phosphor-icons/react";
 import { Box, Button, Code, Flex, Text } from "@radix-ui/themes";
 import { trpc } from "@src/shared/config";
+import { createLazyFileRoute } from "@tanstack/react-router";
 
-export default function Home() {
+export const Route = createLazyFileRoute("/")({
+  component: Index,
+});
+
+function Index() {
   const { mutate: openGithub } = trpc.gh.useMutation();
 
   return (

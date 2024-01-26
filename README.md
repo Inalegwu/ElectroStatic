@@ -37,3 +37,5 @@ can be a hassle to setup over and over again
 [Electron Builder](https://electron.build.) : Tool for packaging electron apps for distribution , there isn't much to say about this package , it's pretty ubiquitous in the electron community
 
 [Better-Sqlite3](https://github.com/wiselibs/better-sqlite3): The best way to interact with an sqlite database in nodejs and thus electron
+
+[Biome JS](https://biomejs.dev) : Formatting and Linting.
