@@ -19,11 +19,6 @@
     "db:push": "drizzle-kit push:sqlite",
     "postinstall": "electron-rebuild"
   },
-  "electronmon": {
-    "patterns": [
-      "dist/**/*"
-    ]
-  },
   "build": {
     "appId": "com.electrostatic.app",
     "productName": "ElectroStatic",
@@ -31,7 +26,7 @@
     "buildDependenciesFromSource": true,
     "icon": "assets/icon.png",
     "files": [
-      "dist/**/*"
+      "out/**/*"
     ],
     "directories": {
       "output": "release/${version}"
@@ -61,7 +56,6 @@
     "nsis": {
       "oneClick": false,
       "allowToChangeInstallationDirectory": true,
-      "deleteAppOnUninstall": true
     }
   },
   "dependencies": {
@@ -85,7 +79,6 @@
   },
   "devDependencies": {
     "@biomejs/biome": "1.4.1",
-    "@kuma-ui/webpack-plugin": "^1.2.6",
     "@tanstack/router-devtools": "^1.12.13",
     "@tanstack/router-vite-plugin": "^1.12.8",
     "@types/better-sqlite3": "^7.6.8",
@@ -93,17 +86,10 @@
     "@types/react": "^18.2.42",
     "@types/react-dom": "^18.2.17",
     "@vitejs/plugin-react": "^4.2.1",
-    "copy-webpack-plugin": "^11.0.0",
-    "cross-env": "^7.0.3",
-    "css-loader": "^6.8.1",
     "drizzle-kit": "^0.20.6",
     "electron": "^28.0.0",
     "electron-builder": "^24.9.1",
     "electron-vite": "^2.0.0",
-    "electronmon": "^2.0.2",
-    "html-webpack-plugin": "^5.5.3",
-    "mini-css-extract-plugin": "^2.7.6",
-    "npm-run-all": "^4.1.5",
     "typescript": "^5.3.2",
     "unocss": "^0.58.3",
     "vite": "^5.0.12"
