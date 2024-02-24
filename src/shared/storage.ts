@@ -4,7 +4,7 @@ import { app } from "electron";
 import * as schema from "./schema/index";
 
 process.env = {
-  STORAGE_LOCATION: `${app.getPath("appData")}/Vision/comics.db`,
+  STORAGE_LOCATION: `${app.getPath("appData")}/Electrostatic/demo.db`,
 };
 
 const sqlite = new Database(process.env.STORAGE_LOCATION!);

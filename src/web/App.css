@@ -1,13 +1,13 @@
 @font-face {
-  font-family: Nunito;
-  src: url("../assets/fonts/nun.ttf");
+  font-family: Bricolage;
+  src: url("../assets/fonts/bricolage.ttf");
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Nunito;
+  font-family: Bricolage;
   text-decoration: none;
 }
 

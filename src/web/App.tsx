@@ -11,7 +11,7 @@ import ReactDOM from "react-dom/client";
 import { enableReactTracking } from "@legendapp/state/config/enableReactTracking";
 import { configureObservablePersistence } from "@legendapp/state/persist";
 import { ObservablePersistLocalStorage } from "@legendapp/state/persist-plugins/local-storage";
-import { queryClient, trpc, trpcClient } from "@shared/config";
+import t, { queryClient, trpcClient } from "@shared/config";
 import { QueryClientProvider } from "@tanstack/react-query";
 
 // some custom css
@@ -41,7 +41,6 @@ import { Route as rootRoute } from "./routes/__root";
 import { Theme } from "@radix-ui/themes";
 import "@radix-ui/themes/styles.css";
 
-
 // uno css for more granular styles where needed
 import "virtual:uno.css";
 
@@ -69,18 +68,18 @@ if (!rootElement?.innerHTML) {
   // create our app
   root.render(
     <StrictMode>
-      <trpc.Provider client={trpcClient} queryClient={queryClient}>
+      <t.Provider client={trpcClient} queryClient={queryClient}>
         <QueryClientProvider client={queryClient}>
           <Theme
             appearance="dark"
             radius="medium"
-            accentColor="mint"
+            accentColor="blue"
             grayColor="slate"
           >
             <RouterProvider router={router} />
           </Theme>
         </QueryClientProvider>
-      </trpc.Provider>
+      </t.Provider>
     </StrictMode>,
   );
 }

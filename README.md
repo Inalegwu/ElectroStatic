@@ -38,4 +38,4 @@ can be a hassle to setup over and over again
 
 [Better-Sqlite3](https://github.com/wiselibs/better-sqlite3): The best way to interact with an sqlite database in nodejs and thus electron
 
-[Biome JS](https://biomejs.dev) : Formatting and Linting.
+[Biome JS](https://biomejs.dev) : For formatting and linting.
