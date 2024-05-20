@@ -11,11 +11,6 @@ export default defineConfig({
       lib: {
         entry: "src/main.ts",
       },
-      rollupOptions: {
-        // externalize better-sqlite3 since it uses
-        // a native addon
-        external: ["better-sqlite3"],
-      },
     },
     resolve: {
       // path aliases

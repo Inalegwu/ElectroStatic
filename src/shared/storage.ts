@@ -1,12 +1,11 @@
-import Database from "better-sqlite3";
-import { drizzle } from "drizzle-orm/better-sqlite3";
-import { app } from "electron";
-import * as schema from "./schema/index";
+// these both have to be cjs, 'cause of esm modules
+// in electron
+import { createStore } from "tinybase/cjs";
+import { createIndexedDbPersister } from "tinybase/cjs/persisters/persister-indexed-db";
 
-process.env = {
-  STORAGE_LOCATION: `${app.getPath("appData")}/Electrostatic/demo.db`,
-};
+export const store = createStore();
 
-const sqlite = new Database(process.env.STORAGE_LOCATION!);
+const persister = createIndexedDbPersister(store, "__electrostatic_db", 5);
 
-export const db = drizzle(sqlite, { schema });
+persister.save();
+persister.startAutoSave();

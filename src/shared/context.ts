@@ -1,6 +1,6 @@
 import { inferAsyncReturnType } from "@trpc/server";
 import { BrowserWindow } from "electron";
-import {db} from "./storage";
+import {store} from "./storage";
 
 // attach variables and other state you plan on making
 // accessible in your procedures
@@ -11,7 +11,7 @@ export async function createContext() {
   return {
     // exposed under window alias
     window: browserWindow,
-    db,
+    store,
   };
 }
 
