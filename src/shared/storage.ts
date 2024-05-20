@@ -4,6 +4,9 @@
 import { createStore } from "tinybase/cjs";
 import { createIndexedDbPersister } from "tinybase/cjs/persisters/persister-indexed-db";
 
+// there is also an option for an sqlite3 persister
+// import {createSqlite3Persister} from "tinybase/cjs/persisters/persister-sqlite3"
+
 // your store/database
 export const store = createStore();
 
