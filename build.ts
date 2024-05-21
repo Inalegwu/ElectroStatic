@@ -4,7 +4,7 @@ build({
   config: {
     appId: "com.electrostatic.app",
     productName: "ElectroStatic",
-    artifactName: "${product_name}-${version}_${platform}_${arch}.${ext}",
+    artifactName: "${productName}-${version}_${platform}_${arch}.${ext}",
     buildDependenciesFromSource: true,
     files: ["out/**/*"],
     directories: {
