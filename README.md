@@ -39,3 +39,7 @@ can be a hassle to setup over and over again
 [PouchDB](https://pouchdb.com): A database that syncs and works well in local-first applications.
 
 [Biome JS](https://biomejs.dev) : For formatting and linting.
+
+
+## New
+A Brand New Branch that Leverages [Drizzle ORM](https://orm.drizzle.team) and [Electric SQL's](https://electric-sql.com) [PGLite](https://pglite.dev/) to provide a Local Postgres Database for Local First Applications that can also sync with [Electric SQL](https://electric-sql.com) if you want that cloud-hosted sync goodness
