@@ -1,6 +1,6 @@
 import { CornersOut, Minus, X } from "@phosphor-icons/react";
 import { Button, Flex, Text } from "@radix-ui/themes";
-import t from "@src/shared/config";
+import t from "@shared/config";
 import type React from "react";
 
 type LayoutProps = {
