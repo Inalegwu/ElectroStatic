@@ -1,9 +1,10 @@
 import { build } from "electron-builder";
+import pkg from "./package.json";
 
 build({
   config: {
-    appId: "com.electrostatic.app",
-    productName: "ElectroStatic",
+    appId: `com.${pkg.name}.app`,
+    productName: pkg.name.toLocaleUpperCase(),
     artifactName: "${productName}-${version}_${platform}_${arch}.${ext}",
     buildDependenciesFromSource: true,
     files: ["out/**/*"],

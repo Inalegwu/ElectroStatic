@@ -1,14 +1,24 @@
 @font-face {
-  font-family: Bricolage;
-  src: url("../assets/fonts/bricolage.ttf");
+  font-family: Font;
+  src: url("../assets/fonts/font_1.ttf");
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Bricolage;
+  font-family: Font;
   text-decoration: none;
+  letter-spacing: 0.01em;
+}
+
+.radix-themes{
+  --default-font-family:Font;
+  --heading-font-family: Font;
+  --code-font-family:Font;
+  --strong-font-family:Font;
+  --em-font-family:Font;
+  --quote-font-family:Font;
 }
 
 body {

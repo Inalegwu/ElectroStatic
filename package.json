@@ -17,8 +17,7 @@
     "prebuild": "electron-vite build",
     "build": "pnpm tsx build.ts",
     "db:generate": "drizzle-kit generate:sqlite",
-    "db:push": "drizzle-kit push:sqlite",
-    "postinstall": "electron-rebuild"
+    "db:push": "drizzle-kit push:sqlite"
   },
   "dependencies": {
     "@electron/rebuild": "^3.6.0",
@@ -31,11 +30,15 @@
     "@trpc/react-query": "^10.45.2",
     "@trpc/server": "^10.45.2",
     "electron-trpc": "^0.5.2",
+    "motion": "^11.13.1",
+    "neverthrow": "^8.1.1",
+    "pouchdb-find": "^9.0.0",
+    "pouchdb-node": "^9.0.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-error-boundary": "^4.0.13",
+    "relational-pouch": "^4.1.1",
     "sort-by": "^1.2.0",
-    "tinybase": "^4.8.17",
     "zod": "^3.23.8"
   },
   "devDependencies": {
@@ -43,6 +46,7 @@
     "@tanstack/router-devtools": "^1.48.4",
     "@tanstack/router-vite-plugin": "^1.48.6",
     "@types/node": "^20.16.1",
+    "@types/pouchdb": "^6.4.2",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react": "^4.3.1",

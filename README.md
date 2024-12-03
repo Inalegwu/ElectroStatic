@@ -18,15 +18,15 @@ The Key Pieces of ElectroStatic
 
 [TRPC](https://trpc.io): This package is used as our IPC layer.Having using this package in my projects has made interprocess communication much easier , especially with the ease of [Electron TRPC](https://www.electron-trpc.dev/).I had originally used [Interprocess](https://github.com/daltonmenezes/interprocess) by Dalton Menezes , which was great, But the lack of typesaftey became a problem once my project grew significantly but luckily I found electron-trpc after some research and it's been great to me
 
-[Radix Themes](https://www.radix-ui.com/themes): For UI Components for appearance.Being a React Native Developer primarily , and having used [Shopify Restyle](https://github.com/Shopify/restyle) many times, I love this pattern of styling , some times over tailwind for building more defined style systems.
+[Radix Themes](https://www.radix-ui.com/themes): For UI Components for appearance.Being a React Native Developer primarily , and having used [Shopify Restyle](https://github.com/Shopify/restyle) many times, I love this pattern of styling, some times over tailwind for building more defined style systems.
 
 [Unocss](https://unocss.dev):For simple additional styling where necessary or where radix-themes don't meet up to what you need.
 
-[Drizzle](https://orm.drizzle.team) : Typescript interface for our storing data in a local database , Ideal for offline first applications and other applications that will need to store some other type of information locally that is too structured or too large for web local storage.Offline first apps have become more and more popular in Userland , and building apps with offline first in mind , is a key strategy to success for indie app developers , So drizzle and SQLite are great fits for projects targetting those environments
+<!-- [Drizzle](https://orm.drizzle.team) : Typescript interface for our storing data in a local database , Ideal for offline first applications and other applications that will need to store some other type of information locally that is too structured or too large for web local storage.Offline first apps have become more and more popular in Userland , and building apps with offline first in mind , is a key strategy to success for indie app developers , So drizzle and SQLite are great fits for projects targetting those environments -->
 
 [Legend State](https://legendapp.com/open-source/state) : New state management library for React and javascript , focused on providing the fine grained reactivity promised by other frameworks without hacking React internals , I've used this in personal and professional projects recently after it's announcment and for a new package it shows a lot of promise , This along with [Zustand](https://docs.pmnd.rs/zustand/getting-started/introduction) are my state managers of choice , I've added Legend state to this starter template because of its' relative easy of use and familiarity to people from other state managers like MobX , XState , Valtio and others like it but also to inspire me to use it a bit more in my own personal projects.
 
-### Other Tools
+## Other Tools
 Other packages that are 'essential' to electron development but
 can be a hassle to setup over and over again
 
@@ -36,6 +36,6 @@ can be a hassle to setup over and over again
 
 [Electron Builder](https://electron.build.) : Tool for packaging electron apps for distribution , there isn't much to say about this package , it's pretty ubiquitous in the electron community
 
-[Tinybase](https://tinybase.org): A node and browser based database for building powerful local first applications.
+[PouchDB](https://pouchdb.com): A database that syncs and works well in local-first applications.
 
 [Biome JS](https://biomejs.dev) : For formatting and linting.
