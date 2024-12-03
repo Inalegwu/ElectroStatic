@@ -16,10 +16,11 @@
     "dev": "electron-vite dev -w",
     "prebuild": "electron-vite build",
     "build": "pnpm tsx build.ts",
-    "db:generate": "drizzle-kit generate:sqlite",
-    "db:push": "drizzle-kit push:sqlite"
+    "db:generate": "drizzle-kit generate",
+    "db:push": "drizzle-kit push"
   },
   "dependencies": {
+    "@electric-sql/pglite": "^0.2.14",
     "@electron/rebuild": "^3.6.0",
     "@legendapp/state": "^2.1.14",
     "@phosphor-icons/react": "^2.1.7",
@@ -29,15 +30,13 @@
     "@trpc/client": "^10.45.2",
     "@trpc/react-query": "^10.45.2",
     "@trpc/server": "^10.45.2",
+    "drizzle-orm": "^0.37.0",
     "electron-trpc": "^0.5.2",
     "motion": "^11.13.1",
     "neverthrow": "^8.1.1",
-    "pouchdb-find": "^9.0.0",
-    "pouchdb-node": "^9.0.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-error-boundary": "^4.0.13",
-    "relational-pouch": "^4.1.1",
     "sort-by": "^1.2.0",
     "zod": "^3.23.8"
   },
@@ -50,6 +49,7 @@
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react": "^4.3.1",
+    "drizzle-kit": "^0.29.0",
     "electron": "^28.3.3",
     "electron-builder": "^24.13.3",
     "electron-vite": "^2.3.0",
