@@ -1,6 +1,11 @@
 @font-face {
   font-family: Font;
-  src: url("../assets/fonts/font_1.ttf");
+  src: url("../assets/fonts/SF-Pro-Rounded-Medium.otf");
+}
+
+@font-face {
+  font-family: Font;
+  src: url("../assets/fonts/SF-Pro-Rounded-Regular.otf");
 }
 
 * {
@@ -38,4 +43,11 @@ body {
 ::-webkit-scrollbar {
   width: 0;
   background: transparent;
+}
+
+button{
+  appearance:none;
+  background:none;
+  border:none;
+  cursor:pointer;
 }

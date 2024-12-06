@@ -38,7 +38,6 @@ const rootElement = document.getElementById("root");
 if (!rootElement?.innerHTML) {
   const root = ReactDOM.createRoot(rootElement!);
 
-  // create our app
   root.render(
     <StrictMode>
       <t.Provider client={trpcClient} queryClient={queryClient}>
