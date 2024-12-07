@@ -1,5 +1,7 @@
 # Electron App Starter
 
+![plate](./assets/plate.png)
+
 This project is a starter template for Electron Based Desktop applications
 it's designed to be as unopinionated as possible and is based on [Create-Electron-Webpack](https://github.com/sprout2000/create-electron-webpack) but uses electron-vite instead to provide fast hot reloading as well as mitigate some of the known issues when using webpack with some electron related packages
 All packages included in this project are entirely removable and can be replaced with your own choices , This template is designed to reduce boilerplate and to let developers focusing on building their applications as quickly as possible
