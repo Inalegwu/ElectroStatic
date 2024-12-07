@@ -15,7 +15,7 @@ function Index() {
     <Flex
       grow="1"
       direction="column"
-      className="h-screen w-full overflow-y-scroll pb-14"
+      className="h-screen w-full overflow-y-scroll"
     >
       <img src={place} alt="placeholder" className="w-full h-5/6" />
       <Box className="w-full flex flex-col items-start px-3 py-2">
@@ -78,7 +78,7 @@ function Index() {
           </li>
           <li className="text-[16px]">
             <Code className="mr-2 px-3 py-1 mb-1 text-sm" color="gray">
-              src/shared/types.ts
+              src/global.d.ts
             </Code>
             all your custom types could live here
           </li>

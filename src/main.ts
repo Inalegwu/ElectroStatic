@@ -9,6 +9,8 @@ app.setName(pkg.name.toLocaleUpperCase());
 
 const createWindow = () => {
   const mainWindow = new BrowserWindow({
+    minWidth: 500,
+    minHeight: 500,
     frame: false,
     webPreferences: {
       sandbox: false,
@@ -32,7 +34,7 @@ const createWindow = () => {
     mainWindow.loadFile(join(__dirname, "../renderer/index.html"));
   }
 
-  mainWindow.webContents.openDevTools({ mode: "bottom" });
+  // mainWindow.webContents.openDevTools({ mode: "bottom" });
 };
 
 app.whenReady().then(() => {

@@ -35,7 +35,7 @@ export default function Layout({ children }: LayoutProps) {
         <Text className="text-neutral-300 font-extrabold tracking-wide font-[15px]">
           ElectroStatic
         </Text>
-        <Flex id="drag-region" p="1" grow={1} />
+        <Flex id="drag-region" p="1" grow="1" />
         <Flex align="center" justify="end" gap="5">
           <button className="text-neutral-50" onClick={() => minimizeWindow()}>
             <Minus size={10} />
