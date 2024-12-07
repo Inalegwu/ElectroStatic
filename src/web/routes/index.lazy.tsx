@@ -21,9 +21,9 @@ function Index() {
       <Box className="w-full flex flex-col items-start px-3 py-2">
         <Flex direction="column" align="start" className="mb-3 -space-y-2">
           <Text className="text-[39px] font-bold tracking-wide">
-            Welcome to the Electrostatic starter template
+            Electrostatic
           </Text>
-          <Text className="text-[25px]">
+          <Text className="text-[25px] font-bold">
             Get up an running with an Electron app in minutes instead of hours
           </Text>
         </Flex>
