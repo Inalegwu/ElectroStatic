@@ -15,9 +15,7 @@
     "start": "electron-vite preview",
     "dev": "electron-vite dev -w",
     "prebuild": "electron-vite build",
-    "build": "pnpm tsx build.ts",
-    "db:generate": "drizzle-kit generate:sqlite",
-    "db:push": "drizzle-kit push:sqlite"
+    "build": "pnpm tsx build.ts"
   },
   "dependencies": {
     "@electron/rebuild": "^3.6.0",
