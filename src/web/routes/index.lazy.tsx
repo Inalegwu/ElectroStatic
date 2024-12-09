@@ -1,5 +1,5 @@
 import place from "@assets/images/place.jpg";
-import { GithubLogo } from "@phosphor-icons/react";
+import { Icon } from "@components/index";
 import { Box, Button, Code, Flex, Text } from "@radix-ui/themes";
 import t from "@shared/config";
 import { createLazyFileRoute } from "@tanstack/react-router";
@@ -89,7 +89,7 @@ function Index() {
           variant="soft"
           radius="large"
         >
-          View on Gitub <GithubLogo />
+          View on Gitub <Icon name="Github" />
         </Button>
       </Box>
     </Flex>

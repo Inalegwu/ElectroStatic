@@ -3,9 +3,9 @@ import { memo } from "react";
 
 type Props = {
   name: keyof typeof icons;
-  size: number;
-  color: string;
-  className: string;
+  size?: number;
+  color?: string;
+  className?: string;
 };
 
 const Icon = memo(({ name, size, color, className }: Props) => {

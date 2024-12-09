@@ -1,5 +1,4 @@
-import { CornersOut, Minus } from "@phosphor-icons/react";
-import { X } from "@phosphor-icons/react/dist/ssr";
+import { Icon } from "@components/index";
 import { Flex, Text } from "@radix-ui/themes";
 import t from "@shared/config";
 import type React from "react";
@@ -38,13 +37,13 @@ export default function Layout({ children }: LayoutProps) {
         <Flex id="drag-region" p="1" grow="1" />
         <Flex align="center" justify="end" gap="5">
           <button className="text-neutral-50" onClick={() => minimizeWindow()}>
-            <Minus size={10} />
+            <Icon name="Minimize" size={10} />
           </button>
           <button className="text-neutral-50" onClick={() => maximizeWindow()}>
-            <CornersOut size={10} />
+            <Icon name="Maximize" size={10} />
           </button>
           <button onClick={() => closeWindow()} className="text-red-600">
-            <X size={10} />
+            <Icon name="X" size={10} />
           </button>
         </Flex>
       </Flex>
