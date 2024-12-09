@@ -31,10 +31,20 @@ export default function Layout({ children }: LayoutProps) {
         width="100%"
         className="absolute top-0 left-0 px-2 py-2"
       >
-        <Text className="text-neutral-300 font-extrabold tracking-wide font-[15px]">
+        <Text className="text-neutral-300 font-extrabold tracking-wider font-[15px]">
           ElectroStatic
         </Text>
-        <Flex id="drag-region" p="1" grow="1" />
+        <Flex
+          id="drag-region"
+          grow="1"
+          align="center"
+          justify="center"
+          direction="row"
+        >
+          <Text size="2" className=" text-neutral-300">
+            Version {appVer}
+          </Text>
+        </Flex>
         <Flex align="center" justify="end" gap="5">
           <button className="text-neutral-50" onClick={() => minimizeWindow()}>
             <Icon name="Minimize" size={10} />
