@@ -1,3 +1,4 @@
+import Icon from "./icon";
 import Layout from "./layout";
 
-export { Layout };
+export { Icon, Layout };
