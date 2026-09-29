@@ -1,36 +1,19 @@
-@font-face {
-  font-family: Font;
-  src: url("../assets/fonts/SF-Pro-Rounded-Medium.otf");
-}
+@import "tailwindcss";
+@plugin "@toolwind/corner-shape";
+
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
 
 @font-face {
   font-family: Font;
-  src: url("../assets/fonts/SF-Pro-Rounded-Regular.otf");
+  src: url("../assets/fonts/Satoshi-Variable.ttf");
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Font;
-  text-decoration: none;
-  letter-spacing: 0.01em;
-}
-
-.radix-themes{
-  --default-font-family:Font;
-  --heading-font-family: Font;
-  --code-font-family:Font;
-  --strong-font-family:Font;
-  --em-font-family:Font;
-  --quote-font-family:Font;
+@theme {
+  --font-display: Font;
 }
 
 body {
-   -webkit-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  overflow: hidden;
+  @apply font-display bg-black select-none text-neutral-200;
 }
 
 #drag-region {
@@ -42,12 +25,17 @@ body {
 
 ::-webkit-scrollbar {
   width: 0;
-  background: transparent;
+  background: none;
 }
 
-button{
-  appearance:none;
-  background:none;
-  border:none;
-  cursor:pointer;
+button {
+  @apply items-center justify-center cursor-pointer appearance-none outline-none active:scale-[0.97];
+}
+
+div {
+  @apply outline-none
+}
+
+.root {
+  isolation: isolate;
 }

@@ -8,19 +8,25 @@
     "lib": ["DOM", "ESNext"],
     "jsx": "react-jsx",
     "strict": true,
+    "ignoreDeprecations": "6.0",
     "baseUrl": ".",
     "paths": {
-      "@src/*": ["src/*"],
-      "@shared/*": ["src/shared/*"],
-      "@components/*": ["src/web/components/*"],
-      "@assets/*": ["src/assets/*"],
-      "@pages/*": ["src/web/routes/*"]
-    }
+      "@/*": ["./src/*"],
+      "@state": ["./src/web/state/index.ts"],
+      "@web/*": ["./src/web/*"],
+      "@components": ["./src/web/components/index.ts"],
+      "@atoms": ["./src/web/components/atoms/index.ts"],
+      "@shared/*": ["./src/shared/*"]
+    },
+    "plugins": [
+      {
+        "name": "@effect/language-service",
+        "diagnostics": true,
+        "quickinfo": true,
+        "completions": true,
+        "refactors": true
+      }
+    ]
   },
-  "include": ["src", "src/web/kuma.config.ts"],
-  "ts-node": {
-    "compilerOptions": {
-      "module": "CommonJS"
-    }
-  }
+  "include": ["src"]
 }

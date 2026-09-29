@@ -1,14 +1,13 @@
-import type { inferAsyncReturnType } from "@trpc/server";
-import { BrowserWindow } from "electron";
-import { store } from "./storage";
+import { BrowserWindow } from 'electron';
+import db from './storage';
 
 export async function createContext() {
   const browserWindow = BrowserWindow.getFocusedWindow();
 
   return {
     window: browserWindow,
-    store,
+    db,
   };
 }
 
-export type Context = inferAsyncReturnType<typeof createContext>;
+export type Context = Awaited<ReturnType<typeof createContext>>;

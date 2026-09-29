@@ -8,3 +8,4 @@ out
 *.gen.ts
 app_db
 drizzle
+*.db

@@ -1,20 +1,26 @@
-import { createContext } from "@shared/context";
-import { appRouter } from "@shared/routers/_app";
-import { BrowserWindow, app } from "electron";
-import { createIPCHandler } from "electron-trpc/main";
-import { join } from "node:path";
-import pkg from "../package.json";
+import path, { join } from 'node:path';
+import { createContext } from '@shared/context';
+import { appRouter } from '@shared/routers/_app';
+import { app, BrowserWindow, screen } from 'electron';
+import { createIPCHandler } from 'trpc-electron/main';
+import pkg from '../package.json';
+import './workers/executor';
 
 app.setName(pkg.name.toLocaleUpperCase());
 
 const createWindow = () => {
+  const { width, height } = screen.getPrimaryDisplay().workAreaSize;
+
   const mainWindow = new BrowserWindow({
-    minWidth: 500,
-    minHeight: 500,
     frame: false,
+    show: false,
+    width: width - 25,
+    height: height - 25,
+    minWidth: width - 25,
+    minHeight: height - 25,
     webPreferences: {
       sandbox: false,
-      preload: join(__dirname, "../preload/preload.js"),
+      preload: path.join(__dirname, '../preload/preload.js'),
     },
   });
 
@@ -24,14 +30,14 @@ const createWindow = () => {
     createContext,
   });
 
-  mainWindow.webContents.on("dom-ready", () => {
-    mainWindow.show;
+  mainWindow.webContents.on('dom-ready', () => {
+    mainWindow.show();
   });
 
   if (import.meta.env.DEV) {
-    mainWindow.loadURL("http://localhost:5173");
+    mainWindow.loadURL('http://localhost:5173');
   } else {
-    mainWindow.loadFile(join(__dirname, "../renderer/index.html"));
+    mainWindow.loadFile(join(__dirname, '../renderer/index.html'));
   }
 
   // mainWindow.webContents.openDevTools({ mode: "bottom" });
@@ -41,4 +47,4 @@ app.whenReady().then(() => {
   createWindow();
 });
 
-app.once("window-all-closed", () => app.quit());
+app.once('window-all-closed', () => app.quit());

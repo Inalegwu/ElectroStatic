@@ -1,4 +1,4 @@
-import { publicProcedure, router } from "@src/trpc";
+import { publicProcedure, router } from '@/trpc';
 
 export const windowRouter = router({
   closeWindow: publicProcedure.mutation(async ({ ctx }) => {

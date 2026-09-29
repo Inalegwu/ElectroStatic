@@ -1,59 +1,52 @@
-import { TanStackRouterVite } from "@tanstack/router-vite-plugin";
-import react from "@vitejs/plugin-react";
-import { defineConfig, externalizeDepsPlugin } from "electron-vite";
-import { resolve } from "node:path";
-import UnoCSS from "unocss/vite";
+import path from 'node:path';
+import tailwindcss from '@tailwindcss/vite';
+import { tanstackRouter } from '@tanstack/router-plugin/vite';
+import react from '@vitejs/plugin-react';
+import { defineConfig } from 'electron-vite';
 
 export default defineConfig({
   main: {
-    plugins: [externalizeDepsPlugin()],
-    build: {
-      lib: {
-        entry: "src/main.ts",
-      },
-    },
     resolve: {
-      alias: {
-        "@src": resolve(__dirname, "src/"),
-        "@shared": resolve(__dirname, "src/shared/"),
-        "@components": resolve(__dirname, "src/web/components/"),
-        "@assets": resolve(__dirname, "src/assets/"),
-        "@pages": resolve(__dirname, "src/web/pages"),
+      tsconfigPaths: true,
+    },
+    build: {
+      externalizeDeps: true,
+      lib: {
+        entry: {
+          main: 'src/main.ts',
+          'workers/executor': 'src/workers/executor.ts',
+        },
       },
     },
   },
   preload: {
-    plugins: [externalizeDepsPlugin()],
+    resolve: {
+      tsconfigPaths: true,
+    },
     build: {
+      externalizeDeps: true,
       lib: {
-        entry: "src/preload.ts",
+        entry: 'src/preload.ts',
       },
     },
   },
   renderer: {
-    root: "src/web/",
     resolve: {
-      alias: {
-        "@src": resolve(__dirname, "src/"),
-        "@shared": resolve(__dirname, "src/shared/"),
-        "@components": resolve(__dirname, "src/web/components/"),
-        "@assets": resolve(__dirname, "src/assets/"),
-        "@pages": resolve(__dirname, "src/web/pages"),
-      },
+      tsconfigPaths: true,
     },
+    root: 'src/web/',
     plugins: [
       react(),
-      UnoCSS(),
-      TanStackRouterVite({
-        routesDirectory: "./src/web/routes/",
-        generatedRouteTree: "./src/web/routeTree.gen.ts",
+      tailwindcss(),
+      tanstackRouter({
+        routesDirectory: path.join(__dirname, 'src/web/routes'),
+        generatedRouteTree: path.join(__dirname, 'src/web/routeTree.gen.ts'),
       }),
     ],
-    // where to output your web files
     build: {
-      outDir: "out/renderer",
+      outDir: 'out/renderer',
       rollupOptions: {
-        input: "./src/web/index.html",
+        input: path.join(__dirname, 'src/web/index.html'),
       },
     },
   },

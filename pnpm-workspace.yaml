@@ -1,0 +1,9 @@
+allowBuilds:
+  "@biomejs/biome": true
+  '@parcel/watcher': true
+  electron: true
+  electron-winstaller: true
+  esbuild: true
+  leveldown: true
+  msgpackr-extract: true
+blockExoticSubdeps: false
