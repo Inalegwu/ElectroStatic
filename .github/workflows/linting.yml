@@ -1,0 +1,26 @@
+name : Lint, Type Check and Code Quality
+
+on:
+    push:
+        branches: [master,dev]
+    pull_request:
+        branches: [master,dev]
+
+jobs:
+    lint:
+        name: Lint TS (Biome)
+        runs-on: ubuntu-latest
+        
+        steps:
+            - name: 📦 Checkout Repo
+              uses: actions/checkout@v3
+              with:
+                fetch-depth: 0
+
+            - name: Setup Biome
+              uses: biomejs/setup-biome@v2
+              with:
+                version: latest
+
+            - name: Run Biome
+              run: biome ci .

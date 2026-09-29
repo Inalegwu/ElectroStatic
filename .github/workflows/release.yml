@@ -1,0 +1,77 @@
+name: Build and Release
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  check-version-change:
+    runs-on: ubuntu-latest
+    outputs:
+      version_changed: ${{ steps.check.outputs.version_changed }}
+      new_version: ${{ steps.check.outputs.new_version }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      - name: Check Version Change
+        id: check
+        run: |
+          git diff HEAD^ HEAD --name-only | grep -q '^package.json$' || exit 0
+          old_version=$(git show HEAD^:package.json | jq -r '.version')
+          new_version=$(jq -r '.version' package.json)
+          if [ "$old_version" != "$new_version" ] && [ $(git diff HEAD^ HEAD --name-only | wc -l) -eq 1 ]; then
+            echo "version_changed=true" >> $GITHUB_OUTPUT
+            echo "new_version=$new_version" >> $GITHUB_OUTPUT
+          else
+            echo "version_changed=false" >> $GITHUB_OUTPUT
+          fi
+
+  build:
+    needs: check-version-change
+    if: needs.check-version-change.outputs.version_changed == 'true'
+    strategy:
+      matrix:
+        os: [macos-latest, ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Install Dependencies
+        run: yarn install
+      - name: Build for ${{ matrix.os }}
+        # run: |
+        #   if [ "${{ matrix.os }}" == "macos-latest" ]; then
+        #     yarn build:mac
+        #   elif [ "${{ matrix.os }}" == "ubuntu-latest" ]; then
+        #     yarn build:linux
+        #   elif [ "${{ matrix.os }}" == "windows-latest" ]; then
+        #     yarn build:win64
+        #   fi
+        run: yarn build
+        shell: bash
+      - name: Get Asset Details
+        id: get_asset
+        run: |
+          if [ "${{ matrix.os }}" == "macos-latest" ]; then
+            echo "asset_path=./dist/*.dmg" >> $GITHUB_OUTPUT
+          elif [ "${{ matrix.os }}" == "ubuntu-latest" ]; then
+            echo "asset_path=./dist/*.AppImage" >> $GITHUB_OUTPUT
+          elif [ "${{ matrix.os }}" == "windows-latest" ]; then
+            echo "asset_path=./dist/*.exe" >> $GITHUB_OUTPUT
+          fi
+        shell: bash
+      - name: Release
+        uses: softprops/action-gh-release@v2
+        if: success()
+        with:
+          tag_name: v${{ needs.check-version-change.outputs.new_version }}
+          name: v${{ needs.check-version-change.outputs.new_version }}
+          draft: false
+          prerelease: false
+          files: ${{ steps.get_asset.outputs.asset_path }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
