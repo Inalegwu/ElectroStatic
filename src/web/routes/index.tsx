@@ -5,5 +5,12 @@ export const Route = createFileRoute('/')({
 });
 
 function Index() {
-  return <div className='w-full h-full p-1.5 font-medium'>hello world</div>;
+  return (
+    <div className='w-full h-full p-1.5 font-medium flex flex-col'>
+      <button className='rounded-lg text-sm border border-solid border-neutral-200 bg-white'>
+        Press Me
+      </button>
+      hello world
+    </div>
+  );
 }

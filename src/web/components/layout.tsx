@@ -25,9 +25,11 @@ export default function Layout({ children }: LayoutProps) {
   return (
     <div className='transition w-full h-screen flex flex-col'>
       <div className='flex items-center justify-between w-full border-b border-b-solid border-b-neutral-200 dark:border-b-neutral-900'>
-        <span className='text-xs font-bold uppercase pl-1.5'>
-          ElectroStatic
-        </span>
+        <div className='flex items-center justify-start pl-1'>
+          <button className='bg-white rounded-sm border border-solid border-neutral-200 p-1.5'>
+            <Icon name='House' size={12} weight='fill' />
+          </button>
+        </div>
         <div id='drag-region' className='p-1.5 flex-1' />
         <div className='flex items-center justify-end'>
           <button
