@@ -13,7 +13,7 @@
 }
 
 body {
-  @apply font-display bg-black select-none text-neutral-200;
+  @apply font-display bg-neutral-100 text-neutral-950 dark:bg-black select-none dark:text-neutral-200 corner-squircle;
 }
 
 #drag-region {

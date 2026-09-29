@@ -7,17 +7,17 @@ import * as schema from './schema';
 
 const db = pipe(
   createClient({
-    url: 'file:static.db',
+    url: `file:static.db`,
   }),
   (client) => drizzle(client, { schema }),
 );
 
-Effect.try(() => migrate(db, { migrationsFolder: 'drizzle/' })).pipe(
+Effect.tryPromise(() => migrate(db, { migrationsFolder: 'drizzle/' })).pipe(
   Effect.catchTag('UnknownException', (e) => Effect.logFatal(e)),
   Effect.annotateLogs({
     module: 'storage.migrate',
   }),
-  Effect.runSync,
+  Effect.runPromise,
 );
 
 export default db;

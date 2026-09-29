@@ -8,6 +8,10 @@ import './workers/executor';
 
 app.setName(pkg.name.toLocaleUpperCase());
 
+const data_dir = path.join(app.getPath('appData'), 'Nova');
+
+process.env.db_url = path.join(data_dir, `${pkg.name}_storage.db`);
+
 const createWindow = () => {
   const { width, height } = screen.getPrimaryDisplay().workAreaSize;
 
