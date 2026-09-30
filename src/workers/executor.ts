@@ -14,7 +14,7 @@ type ManagedWorker = {
   readonly path: string;
 };
 
-const workersDir = app.isPackaged
+const _workersDir = app.isPackaged
   ? path.join(
       process.resourcesPath,
       'app.asar.unpacked',
@@ -24,13 +24,12 @@ const workersDir = app.isPackaged
     )
   : path.join(__dirname);
 
-const _workerFile = (name: string) => path.join(workersDir, `${name}.js`);
 
 const WORKERS: ManagedWorker[] = [
 ];
 
 const runWorker = (worker: ManagedWorker) =>
-  Effect.async<void, WorkerCrashedError>((resume) => {
+  Effect.callback<void, WorkerCrashedError>((resume) => {
     const thread = new Worker(worker.path);
 
     thread.on('error', (cause) => {
@@ -56,7 +55,7 @@ const runWorker = (worker: ManagedWorker) =>
   });
 
 const RESTART_POLICY = Schedule.spaced('1 second').pipe(
-  Schedule.intersect(Schedule.recurs(5)),
+  Schedule.concat(Schedule.recurs(5)),
 );
 
 const supervised = (worker: ManagedWorker) =>
@@ -80,7 +79,7 @@ const program = Effect.gen(function* () {
   }
 
   const fibers = yield* Effect.forEach(WORKERS, (worker) =>
-    Effect.fork(supervised(worker)),
+    Effect.forkDetach(supervised(worker)),
   );
 
   yield* Fiber.joinAll(fibers);
@@ -88,6 +87,6 @@ const program = Effect.gen(function* () {
 
 program.pipe(
   Effect.scoped,
-  Effect.tapErrorCause((cause) => Console.error('fatal:', cause)),
+  Effect.tapCause((cause) => Console.error('fatal:', cause)),
   NodeRuntime.runMain,
 );

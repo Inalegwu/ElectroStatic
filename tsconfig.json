@@ -1,8 +1,9 @@
 {
+  "$schema": "./node_modules/@effect/tsgo/schema.json",
   "compilerOptions": {
     "target": "ESNext",
     "module": "ESNext",
-    "moduleResolution": "Node",
+    "moduleResolution": "bundler",
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "lib": ["DOM", "ESNext"],
@@ -24,7 +25,20 @@
         "diagnostics": true,
         "quickinfo": true,
         "completions": true,
-        "refactors": true
+        "refactors": true,
+        "diagnosticSeverity": {
+          "anyUnknownInErrorContext": "warning",
+          "catchUnfailableEffect": "warning",
+          "lazyEffect": "warning",
+          "leakingRequirements": "warning",
+          "preferUnsafeConstructor": "warning",
+          "returnEffectInGen": "warning",
+          "runEffectInsideEffect": "warning",
+          "schemaSyncInEffect": "warning",
+          "strictEffectProvide": "warning",
+          "tryCatchInEffectGen": "warning",
+          "unsafeEffectTypeAssertion": "warning"
+        }
       }
     ]
   },
