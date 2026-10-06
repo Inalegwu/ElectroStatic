@@ -6,7 +6,7 @@ export const Route = createFileRoute('/')({
 
 function Index() {
   return (
-    <div className='w-full h-full p-1.5 font-medium flex flex-col'>
+    <div className='w-full h-full p-1.5 flex flex-col'>
       <button className='rounded-lg text-sm border border-solid border-neutral-200 bg-white'>
         Press Me
       </button>
